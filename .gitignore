@@ -1,0 +1,7 @@
+backend/controllers/ConnectDB.js
+backend/node_modules
+
+# dep
+./.vs
+./docs
+./.vscode
