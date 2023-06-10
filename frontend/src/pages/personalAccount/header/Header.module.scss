@@ -1,0 +1,125 @@
+@import "src/general";
+.header{
+	position: fixed;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	width: 100%;
+	height: 50px;
+	z-index: 4;
+	background-color: $color-w1;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: $color-w5;
+	padding-left: 1.3vw;
+	@media (min-width: $screen-xxl){
+		height: 75px;
+	}
+}
+.header__back_btn{
+	grid-area: btn;
+	width: 3.3vw;
+	margin-right: 30px;
+	height: 100%;
+	padding: 0;
+	border: none;
+	background:transparent;
+	@media (hover: hover){
+		&:hover{
+			cursor: pointer;
+		}
+	}
+}
+.header__logo{
+	grid-area: logo;
+	height: 48px;
+}
+.header__logo_margin{
+	margin-right: auto;
+}
+.header__notify_btn{
+	height: 48px;
+	width: 48px;
+	padding: 0;
+	border: none;
+	background:transparent;
+	&:hover{
+		background-color: $color-w2;
+		transition: 0.3s;
+		cursor: pointer;
+	}
+}
+.header__profile_btn{
+	grid-area: profile;
+	min-height: 48px;
+	width: 48px;
+	padding: 0;
+	border: none;
+	background:transparent;
+	@media (hover: hover){
+		&:hover{
+			background-color: $color-w2;
+			transition: 0.3s;
+			cursor: pointer;
+		}
+	}
+}
+.header__profile_btn_margin{
+	margin-right: 2vw;
+}
+.header__svg_profile{
+	max-width: 48px;
+}
+.header_grid{
+	grid-area: header;
+	display: grid;
+	grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+	grid-template-areas: 
+	"btn logo logo profile none";
+	justify-items: end;
+	align-items: start;
+	padding-left: 0px;
+}
+.search{
+	height: 90%;
+	display:inline-block;
+	border-radius:11px;
+	background: $color-w3;
+	line-height: 90%;
+	@include adaptiv-font(20, 10);
+	overflow:hidden;
+	position:relative;
+	@media (min-width: $screen-xxl){
+		
+	}
+}
+.search_margin{
+	margin-right: auto;
+	margin-left: 4vw;
+}
+.search__input{
+	height: 100%;
+	border: none;
+	outline:none;
+	vertical-align:top;
+	position:relative;
+	z-index:2;
+	background:transparent;
+	margin-right: 0.4vw;
+	@include adaptiv-font(20, 10);
+	color: $color-w7;
+}
+.search__icon{
+	width:30px;
+	height:40px;
+	padding-top: 5px;
+	display:inline-block;
+	text-align:center;
+	span.search__icon{
+    position:absolute;
+    z-index:1;
+	}
+	i{
+    color:$color-w7;
+	}
+}

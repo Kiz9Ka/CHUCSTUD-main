@@ -1,19 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Provider } from "react-redux";
-import { store } from './store/store';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './index.scss';
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from 'react-redux'
+import { store } from './store/store'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-// Подключаем провайдер для доступа к стору в любом месте и уровне вложенности компонентов..
+const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
-    <Provider store={ store }>
-        <App />
-    </Provider>
-);
+	<BrowserRouter>
+		<Provider store={ store }>
+				<App />
+		</Provider>
+	</BrowserRouter>
+)
 
-reportWebVitals();
+reportWebVitals()
