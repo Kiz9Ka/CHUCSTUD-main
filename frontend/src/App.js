@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom'
-import Header from './pages/personalAccount/header/Header.jsx'
+import Main from './pages/main/Main.jsx'
 const App = () => {
 	return (
 			<Routes>
-				<Route path='/' element={<Header />} />
+				<Route path='/' element={<Main />} />
 			</Routes>
 	)
 }

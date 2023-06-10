@@ -1,0 +1,8 @@
+@import "src/general";
+
+.main_conveyor{
+	width: 50vw;
+	min-height: 671px;
+	@media (min-width: $screen-xxl){
+	}
+}

@@ -1,0 +1,117 @@
+@import "src/general";
+
+.publication{
+	width: 100%;
+	background: $color-w1;
+	border: 1px solid $color-w5;
+	border-radius: 26px;
+	padding: 10px 0 0 15px;
+	margin-bottom: 20px;
+}
+.publication__avtor_name{
+	margin: 0;
+	@include adaptiv-font(20, 8);
+	color: $color-c3;
+	font-weight: normal;
+}
+.publication__avtor_text{
+	font-size: 0.90rem;
+	font-weight: normal;
+	margin: 0 0 10px 0;
+}
+.publication__body{
+	padding-right: 15px;
+}
+.publication__comment_btn{
+	display: flex;
+	align-items: center;
+	min-width: 60px;
+	height: 32px;
+	padding: 0 0 0 7px;
+	border: none;
+	border-radius: 32px;
+	&:hover{
+		background-color: $color-w14;
+		transition: 0.3s;
+		cursor: pointer;
+	}
+}
+.publication__counter{
+	display: flex;
+	align-items: center;
+	padding: 0;
+}
+.publication__data{
+	margin: 0;
+	font-size: $font-size-h6;
+	color: $color-w8;
+	font-weight: normal;
+}
+.publication__favorites_btn{
+	display: flex;
+	align-items: center;
+	margin-right: auto;
+	min-width: 10px;
+	height: 32px;
+	border: none;
+	border-radius: 32px;
+	&:hover{
+		background-color: $color-w14;
+		transition: 0.3s;
+		cursor: pointer;
+	}
+}
+.publication__footer{
+	display: flex;
+	align-items: center;
+	gap: 1vw;
+	padding-bottom: 10px;
+	padding-right: 15px;
+}
+.publication__header{
+	display: flex;
+	width: 100%;
+	margin-bottom: 4px;
+	padding-right: 15px;
+}
+.publication__header_icon{
+	width: 40px;
+	height: 40px;
+	margin-right: 5px;
+}
+.publication__img{
+	border-radius: 5px;
+	width: 100%;
+}
+.publication__img_container{
+	border-radius: 5px;
+	margin-bottom: 4px;
+}
+.publication__like_btn{
+	display: flex;
+	align-items: center;
+	min-width: 60px;
+	height: 32px;
+	padding: 0 0 0 7px;
+	border: none;
+	border-radius: 32px;
+	&:hover{
+		background-color: $color-w14;
+		transition: 0.3s;
+		cursor: pointer;
+	}
+}
+.publication__svg-icon{
+	margin-right: 0.5vw;
+	&:last-child{
+		margin-right: 0;
+	}
+}
+.publication__text{
+	margin: 0 10px 0 0;
+	font-weight: normal;
+	color: $color-w9;
+}
+.publication__text-small{
+	font-size: $font-size-h6;
+}

@@ -1,0 +1,47 @@
+@import "src/general";
+
+.post-publication{
+	display: flex;
+	display: none;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	width: 100%;
+	background: $color-w1;
+	border: 1px solid $color-w5;
+	border-radius: 26px;
+	padding: 10px 15px 0 15px;
+	margin-bottom: 10px;
+}
+.post_publication__clip{
+	height: 16px;
+	margin: auto 0 25px 0;
+	padding: 0;
+	border: none;
+	background: transparent;
+	@media (hover: hover){
+		&:hover{
+			cursor: pointer;
+		}
+	}
+}
+.post_publication__header_icon{
+	width: 40px;
+	height: 40px;
+	margin-right: 5px;
+}
+.post_publication__input{
+	@include adaptiv-font(20, 10);
+  border-radius: 8px;
+  resize: none;
+  padding: 5px;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: 40px;
+  min-height: 40px;
+	width: 89%;
+  margin-bottom: 15px;
+	border: none;
+	outline:none;
+	vertical-align:top;
+	color: $color-d3;
+}

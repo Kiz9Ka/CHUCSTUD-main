@@ -20,7 +20,7 @@ const AppS = () => {
 	// then и внутри как раз таки диспач внутри которого метод FeedSlice.js записывающий в posts данные
 	useEffect(() => {
 		// Для получения чего-то другого - поменяй адрес откуда брать и пропиши свой слайс в store/slices
-		axios.get('http://localhost:4444/posts').then(response => {
+		axios.get('http://178.46.164.244:4444/posts').then(response => {
 			dispatch(setAllArticles(response.data))
 		})
 	}, [dispatch])
