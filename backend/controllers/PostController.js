@@ -1,17 +1,52 @@
 import PostModel from '../models/Post.js'
+import { v4 as uuidv4 } from 'uuid';
 
 export const getAll = async (req, res) => {
-	try {
-		const posts = await PostModel.find().populate('user').exec()
+  try {
+    let userId = req.cookies.userId;
+    if (!userId) {
+      userId = uuidv4();
+      res.cookie('userId', userId, { maxAge: 365 * 24 * 60 * 60 * 1000 }); // Устанавливаем cookie на 1 год
+    }
 
-		res.json(posts)
-	} catch (error) {
-		console.log(error)
-		res.status(500).json({
-			message: 'Не удалось получить статьи',
-		})
-	}
-}
+    const allPosts = await PostModel.find().populate('user').exec();
+
+    if (!allPosts) {
+      return res.status(404).json({ message: 'Статьи не найдены' });
+    }
+
+    const updatedPosts = await Promise.all(
+      allPosts.map(async (post) => {
+        if (!post.viewedBy.includes(userId)) {
+          // Если пользователь еще не просматривал эту статью, то засчитываем его просмотр
+          const updatedPost = await PostModel.findOneAndUpdate(
+            {
+              _id: post._id
+            },
+            {
+              $inc: { viewsCount: 1 },
+              $push: { viewedBy: userId }
+            },
+            {
+              new: true
+            }
+          ).populate('user').exec();
+          return updatedPost;
+        } else {
+          // Если пользователь уже просмотрел эту статью, то не засчитываем его просмотр
+          return post;
+        }
+      })
+    );
+
+    return res.json(updatedPosts);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: 'Не удалось получить статьи',
+    });
+  }
+};
 
 export const getOne = async (req, res) => {
 	try {

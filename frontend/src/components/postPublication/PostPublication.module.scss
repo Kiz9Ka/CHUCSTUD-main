@@ -1,9 +1,9 @@
 @import "src/general";
 
-.post-publication{
+.post_publication{
 	display: flex;
-	display: none;
 	flex-direction: row;
+	align-content: center;
 	flex-wrap: nowrap;
 	width: 100%;
 	background: $color-w1;
@@ -11,6 +11,9 @@
 	border-radius: 26px;
 	padding: 10px 15px 0 15px;
 	margin-bottom: 10px;
+}
+.post_publication__hidden {
+  display: none;
 }
 .post_publication__clip{
 	height: 16px;
@@ -44,4 +47,18 @@
 	outline:none;
 	vertical-align:top;
 	color: $color-d3;
+}
+.post_publication__input_btn{
+	transition: 0.5s;
+	padding: 0;
+	border: none;
+	background:transparent;
+	@media (hover: hover){
+		&:hover{
+			cursor: pointer;
+			transition: 0.5s;
+			margin-left: 7px;
+			margin-right: -7px;
+		}
+	}
 }

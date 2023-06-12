@@ -1,11 +1,14 @@
+import React from 'react';
 import styles from './RightMenu.module.scss'
 import { HrRight } from '../ui/hr/HrVariables'
-function RightMenu() {
+
+function RightMenu({ togglePostCreateShow }) {
+
 	return (
 	<div className={styles.right_menu} >
 		<div className={styles.right_menu__text_wrapper}>
 				<h3 className={styles.right_menu__text}>Публикации</h3>
-				<button className={styles.right_menu__plus_btn}> <img src="img/page1/Right-menu/plus.svg" alt="Иконка плюса"
+				<button className={styles.right_menu__plus_btn} onClick={togglePostCreateShow} ><img src="img/page1/Right-menu/plus.svg" alt="Иконка плюса"
 								className={styles.right_menu__img}/> </button>
 		</div>
 		<ul className={styles.right_menu__list}>

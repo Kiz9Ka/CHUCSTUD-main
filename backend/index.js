@@ -1,6 +1,7 @@
 import express from 'express'
 import multer from 'multer'
 import cors from 'cors'
+import cookieParser from 'cookie-parser';
 
 import { loginValidation, registerValidation, postCreateValidation } from './validations.js'
 import { checkAuth, handleValidationErrors } from './utils/index.js'
@@ -8,14 +9,9 @@ import { UserController, PostController, connect } from './controllers/index.js'
 
 connect();
 const app = express()
-
-// Если хочешь ограничить возможность делать запросы к бэку
-// напиши за место "*" тот адрес с которого разрешается
-// к примеру "http://localhost:3000/"
+app.use(cookieParser());
 
 const corsOptions = { origin: '*' };
-
-// Магические манипуляции
 
 app.use(cors(corsOptions));
 app.use(express.json());
