@@ -2,7 +2,7 @@
 
 .post_publication{
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-content: center;
 	flex-wrap: nowrap;
 	width: 100%;
@@ -11,6 +11,23 @@
 	border-radius: 26px;
 	padding: 10px 15px 0 15px;
 	margin-bottom: 10px;
+}
+.post_publication__header{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.post_publication__footer{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+}
+.publication__avtor_name{
+	margin: 0;
+	@include adaptiv-font(20, 8);
+	color: $color-c3;
+	font-weight: normal;
 }
 .post_publication__hidden {
   display: none;
@@ -34,19 +51,19 @@
 }
 .post_publication__input{
 	@include adaptiv-font(20, 10);
-  border-radius: 8px;
   resize: none;
   padding: 5px;
   overflow: hidden;
   box-sizing: border-box;
   height: 40px;
   min-height: 40px;
-	width: 89%;
+	width: 100%;
   margin-bottom: 15px;
 	border: none;
 	outline:none;
 	vertical-align:top;
 	color: $color-d3;
+	border-bottom: 2px solid $color-c1;
 }
 .post_publication__input_btn{
 	transition: 0.5s;

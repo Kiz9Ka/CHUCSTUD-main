@@ -21,11 +21,10 @@ export const loginUser = async (email, password) => {
   }
 };
 
-function PopupAuth() {
+function PopupAuth({ isPopupAuthVisible, closePopup }) {
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [isVisible, setIsVisible] = useState(true); // Добавьте состояние isVisible
   
     const handleLogin = async (e) => {
       e.preventDefault();
@@ -36,15 +35,13 @@ function PopupAuth() {
   
         // Сохраните токен в localStorage и закройте окно PopupAuth
         localStorage.setItem('authToken', token);
-        setIsVisible(false);
+        window.location.reload(false);
+        closePopup()
       } catch (error) {
-        // Обработайте ошибки, возникшие при авторизации, например, показывая сообщение об ошибке
+        alert('Ошибка авторизации');
       }
-    };
-    const closePopup = () => {
-      setIsVisible(false);
-    };    
-    const popupAuthStyle = isVisible ? '' : styles.popup_auth_hidden;
+    }; 
+    const popupAuthStyle = isPopupAuthVisible ? '' : styles.popup_auth_hidden;
 return (
 <>  
     <div className={`${styles.popup_wrapper} ${popupAuthStyle}`} onClick={closePopup}></div>
@@ -53,8 +50,8 @@ return (
             <img className={styles.popup_auth__img_top} src="img/page1/Popup/triangle.svg" alt="Треугольник"/>
         </div>
      <div className={styles.popup_auth__bottom_block}>
-        <button className={styles.popup_auth__cross_btn}>
-            <img src="img/page1/Popup/cross.svg" alt="Иконка крестика" onClick={closePopup}/>
+        <button className={styles.popup_auth__cross_btn} onClick={closePopup}>
+            <img src="img/page1/Popup/cross.svg" alt="Иконка крестика"/>
         </button>
         <h2 className={styles.popup_auth__text_title}> Авторизация</h2>
         <form onSubmit={handleLogin} className={styles.popup_auth__form_auth}>

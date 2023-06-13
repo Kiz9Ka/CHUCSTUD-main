@@ -16,7 +16,7 @@ function Publication() {
 	return (
 		<>
 		{posts.map((post) => (
-		<div className={styles.publication} key={post} >
+		<div className={styles.publication} key={post.id} >
 			<section className={styles.publication__header}>
 					<div className={styles.publication__header_icon}>
 							<img src="img/page1/Main/avatar.svg" alt="Иконка Автора" className={styles.publication__svg}/>

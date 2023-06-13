@@ -6,28 +6,30 @@ import PopupAuth from '../../components/popupAuth/PopupAuth';
 
 function Main() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isPopupAuthVisible, setIsPopupAuthVisible] = useState(false);
   const navigate = useNavigate();
-
+	
   useEffect(() => {
-    const token = localStorage.getItem('authToken');
+		const token = localStorage.getItem('authToken');
     if (token) {
-      setIsAuthenticated(true);
+			setIsAuthenticated(true);
     }
   }, []);
-
+	
+	const [isPopupAuthVisible, setIsPopupAuthVisible] = useState(!isAuthenticated);
   const openPopupAuth = () => {
-    if (!isAuthenticated) {
-      setIsPopupAuthVisible(true);
-    } else {
-      navigate('/personalAccount');
-    }
+		if (!isAuthenticated) {
+			setIsPopupAuthVisible(true);
+		} else {
+			navigate('/personalAccount');
+		}	
   };
-
+	const closePopup = () => {
+		setIsPopupAuthVisible(false);
+	};
   return (
     <>
       <Header openPopupAuth={openPopupAuth} />
-      {!isAuthenticated && isPopupAuthVisible && <PopupAuth />}
+      {!isAuthenticated && <PopupAuth isPopupAuthVisible={isPopupAuthVisible} closePopup={closePopup}/>}
       <MainContainer />
     </>
   );
