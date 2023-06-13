@@ -1,5 +1,7 @@
 import styles from './Header.module.scss'
-function Header() {
+
+function Header({ openPopupAuth }) {
+
 	return (
 		<header className={styles.header}>
 			<div className={styles.header__logo}>
@@ -20,7 +22,7 @@ function Header() {
 					className={styles.header__svg_notify}
 				/>
 			</button>
-			<button className={`${styles['header__profile_btn']} ${styles['header__profile_btn_margin']}`}>
+			<button className={`${styles['header__profile_btn']} ${styles['header__profile_btn_margin']}`} onClick={openPopupAuth}>
 				<img
 					src='img/page1/Header/avatar.svg'
 					alt='Иконка профиля'

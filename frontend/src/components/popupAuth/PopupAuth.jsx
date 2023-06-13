@@ -10,14 +10,12 @@ export const loginUser = async (email, password) => {
       email,
       password,
     });
-
-    // Верните данные пользователя и токен из ответа сервера
     return {
       userData: response.data.user,
       token: response.data.token,
     };
   } catch (error) {
-    // Обработайте ошибки, возникшие при авторизации
+    // Обработка ошибок, возникшие при авторизации
     console.error('Ошибка авторизации:', error);
     throw error;
   }
@@ -40,22 +38,23 @@ function PopupAuth() {
         localStorage.setItem('authToken', token);
         setIsVisible(false);
       } catch (error) {
-        // Обработайте ошибки, возникшие при авторизации, например, показывая сообщ об ошибке
+        // Обработайте ошибки, возникшие при авторизации, например, показывая сообщение об ошибке
       }
     };
-  
-    // Используйте состояние isVisible для управления видимостью компонента PopupAuth
+    const closePopup = () => {
+      setIsVisible(false);
+    };    
     const popupAuthStyle = isVisible ? '' : styles.popup_auth_hidden;
 return (
-<>
-    <div className={`${styles.popup_wrapper} ${popupAuthStyle}`}></div>
+<>  
+    <div className={`${styles.popup_wrapper} ${popupAuthStyle}`} onClick={closePopup}></div>
     <div className={`${styles.popup_auth} ${popupAuthStyle}`}>
         <div className={styles.popup_auth__top_block}>
             <img className={styles.popup_auth__img_top} src="img/page1/Popup/triangle.svg" alt="Треугольник"/>
         </div>
      <div className={styles.popup_auth__bottom_block}>
         <button className={styles.popup_auth__cross_btn}>
-            <img src="img/page1/Popup/cross.svg" alt="Иконка крестика" class="popup_auth__cross_svg"/>
+            <img src="img/page1/Popup/cross.svg" alt="Иконка крестика" onClick={closePopup}/>
         </button>
         <h2 className={styles.popup_auth__text_title}> Авторизация</h2>
         <form onSubmit={handleLogin} className={styles.popup_auth__form_auth}>
@@ -74,7 +73,7 @@ return (
         <input
           className={styles.popup_auth__input_password}
           type="password"
-          minLength="4"
+          minLength="5"
           maxLength="16"
           required
           value={password}
