@@ -9,4 +9,9 @@ function HrRight() {
 		<hr className={`${styles['separator']} ${styles['separator_right']}`}/>
 	)
 }
-export {HrNav, HrRight}
+function HrCourse() {
+	return (
+		<hr className={`${styles['separator']} ${styles['separator__course']}`}/>
+	)
+}
+export {HrNav, HrRight, HrCourse}

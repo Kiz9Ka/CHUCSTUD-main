@@ -1,0 +1,65 @@
+@import "src/general";
+
+.header{
+	position: fixed;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	width: 100%;
+	height: 50px;
+	z-index: 4;
+	background-color: $color-w1;
+	border-width: 1px 0px;
+	border-style: solid;
+	border-color: $color-w5;
+	padding-left: 1.3vw;
+	@media (min-width: $screen-xxl){
+		height: 75px;
+	}
+}
+.header_grid{
+	grid-area: header;
+	display: grid;
+	grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+	grid-template-areas: 
+	"btn logo logo profile none";
+	justify-items: end;
+	align-items: start;
+	padding-left: 0px;
+}
+.header__back_btn{
+	grid-area: btn;
+	width: 3.3vw;
+	margin-right: 30px;
+	height: 100%;
+	padding: 0;
+	border: none;
+	background:transparent;
+	@media (hover: hover){
+		&:hover{
+			cursor: pointer;
+		}
+	}
+}
+.header__logo{
+	grid-area: logo;
+	height: 48px;
+}
+.header__logo_margin{
+	margin-right: auto;
+}
+.header__profile_btn{
+	grid-area: profile;
+	min-height: 48px;
+	width: 48px;
+	padding: 0;
+	border: none;
+	background:transparent;
+	@media (hover: hover){
+		&:hover{
+			background-color: $color-w2;
+			transition: 0.3s;
+			cursor: pointer;
+		}
+	}
+}

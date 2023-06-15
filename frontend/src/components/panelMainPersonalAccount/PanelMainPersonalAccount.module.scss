@@ -1,0 +1,112 @@
+@import 'src/general';
+
+.setting_block__panel{
+	display: grid;
+	padding-left: 15px;
+	margin-bottom: 20px;
+	width: 48.5vw;
+	max-height: 150px;
+	background: $color-w1;
+	border: 1px solid $color-w5;
+	border-radius: 26px;
+}
+.setting_block__panel_mod0{
+	grid-template-columns: 60px 1fr 160px;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas: 
+	"img text btn"
+	"img text_tel btn";
+	justify-items: center;
+	align-items: center;
+}
+.setting_block__img{
+	grid-area: img;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.setting_block__svg{
+	grid-area: svg;
+	width: 30px;
+}
+.setting_block__svg_big{
+	width: 60px;
+}
+.setting_block__text{
+	grid-area: text;
+	margin-right: auto;
+}
+.setting_block__text_small{
+	margin-top: auto;
+}
+.setting_block__text_telephone{
+	grid-area: text_tel;
+	margin-bottom: auto;
+	margin-right: auto;
+}
+.setting_block__btn_panel{
+	grid-area: btn;
+	background: $color-w2;
+	border: 1px solid $color-c3;
+	border-radius: 8px;
+	margin-right: 15px;
+	height: 40px;
+	font-size: 12px;
+	@media (hover: hover){
+		&:hover{
+			cursor: pointer;
+			border: 1px solid #2688EB;
+		}
+	}
+}
+.setting_block__panel_mod1{
+	grid-template-columns: 60px 1fr 160px;
+	grid-template-areas: 
+	"img text btn"
+	"img text btn";
+	justify-items: center;
+	align-items: center;
+}
+.setting_block__panel_mod2{
+	grid-template-columns: 60px 2fr 3fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas: 
+	"img text input input-btn"
+	"img text input input-btn";
+	justify-items: center;
+	align-items: center;
+}
+.input{
+	grid-area: input;
+}
+.input__text{
+	height: 35px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	outline:none;
+	vertical-align:top;
+	position:relative;
+	z-index:2;
+	background: #F0F2F5;
+	border: 1px solid #2688EB;
+	border-radius: 8px;
+	margin-right: 0.4vw;
+	@include adaptiv-font(20, 10);
+	color: $color-w7;
+}
+.setting_block__input_btn{
+	grid-area: input-btn;
+	height: 50%;
+	width: 50px;
+	transition: 0.5s;
+	margin-right: auto;
+	padding: 0;
+	border: none;
+	background:transparent;
+	@media (hover: hover){
+		&:hover{
+			cursor: pointer;
+			transition: 0.5s;
+			padding-left: 13px;
+		}
+	}
+}

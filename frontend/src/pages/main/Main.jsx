@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import MainContainer from '../../components/mainContainer/MainContainer';
 import PopupAuth from '../../components/popupAuth/PopupAuth';
-
 function Main() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
@@ -20,7 +19,7 @@ function Main() {
 		if (!isAuthenticated) {
 			setIsPopupAuthVisible(true);
 		} else {
-			navigate('/personalAccount');
+			navigate('/personalAccount/PanelMain');
 		}	
   };
 	const closePopup = () => {

@@ -1,1 +1,24 @@
 @import "src/general";
+
+.body{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 50px 1fr;
+	grid-template-areas: 
+	"header"
+	"main";
+}
+.wrapper_main{
+	grid-area: main;
+	display: grid;
+	grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+	grid-template-areas: 
+	"navbar navbar setting setting none";
+	justify-items: end;
+	padding-top: 20px;
+}
+.setting_block{
+	grid-area: setting;
+	margin-right: auto;
+	padding-left: 20px;
+}

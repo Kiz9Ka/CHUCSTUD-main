@@ -46,7 +46,7 @@ app.get('/posts', PostController.getAll)
 app.get('/posts/:id', PostController.getOne)
 app.delete('/posts/:id', checkAuth, PostController.remove)
 app.patch('/posts/:id', checkAuth, postCreateValidation, handleValidationErrors, PostController.update)
-
+app.put('/posts/:id/like', checkAuth, PostController.like);
 app.listen(4444, err => {
 	if (err) {
 		return console.log(err)

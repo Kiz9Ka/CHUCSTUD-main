@@ -7,7 +7,7 @@ function Navbar() {
 			<ul className={styles.navbar__menu_btn}>
 					<li className={styles.navbar__btn}>
 							<img src="img/page1/Left-nav/newspaper.svg" alt="Иконка Публикации" className={styles.navbar__svg}/>
-							<a href="#" className={styles.navbar__text}> Публикации</a>
+							<a href="http://178.46.164.244:3000" className={styles.navbar__text}> Публикации</a>
 					</li>
 					<li className={styles.navbar__btn}>
 							<img src="img/page1/Left-nav/leaderboard.svg" alt="Иконка Доска лидеров" className={styles.navbar__svg}/>

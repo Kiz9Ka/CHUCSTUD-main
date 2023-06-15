@@ -1,0 +1,182 @@
+@import 'src/general';
+
+.setting_block__panel{
+	display: grid;
+	padding-left: 15px;
+	margin-bottom: 20px;
+	width: 48.5vw;
+	max-height: 150px;
+	background: $color-w1;
+	border: 1px solid $color-w5;
+	border-radius: 26px;
+}
+.setting_block__panel_mod3{
+ 	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 40px;
+}
+.setting_block__text{
+	grid-area: text;
+	margin-right: auto;
+}
+.setting_block__text_center{
+	margin-right: 0;
+	font-weight: 500;
+}
+.setting_block__panel_mod4{
+	display: flex;
+	justify-items: center;
+	align-items: center;
+}
+.setting_block__img{
+	grid-area: img;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.setting_block__img_margin{
+	margin-right: 20px;
+}
+.setting_block__svg{
+	grid-area: svg;
+	width: 30px;
+}
+.setting_block__panel_mod5{
+	display: flex;
+	justify-items: center;
+	align-items: center;
+}
+.setting_block__panel_mod6{
+	grid-template-columns: 40px 1fr 50px 2fr 60px;
+	grid-template-rows: repeat(5 , 30px);
+	grid-template-areas: 
+	"img text toggle1 texta img-grid"
+	"img text toggle1 texta input-btn"
+	"img text toggle2 textb input-btn"
+	"img text toggle3 textc input-btn"
+	"img text toggle3 textc input-btn";
+	justify-items: center;
+	align-items: center;
+}
+.toggle{
+	position: relative;
+	display: inline-block;
+}
+.toggle_grid1{
+	grid-area: toggle1;
+}
+.toggle_grid2{
+	grid-area: toggle2;
+}
+.toggle_grid3{
+	grid-area: toggle3;
+}
+.toggle__item{
+	width: 2.33em;
+	background: #2e394d;
+	height: 1em;
+	display: inline-block;
+	border-radius: 50px;
+	position: relative;
+	transition: all .3s ease;
+	transform-origin: 20% center;
+	cursor: pointer;
+	&:before {
+		content: '';
+		position: absolute;
+		display: block;
+		transition: all .2s ease;
+		width: 2.3em;
+    height: 2.3em;
+		top: .05em;
+		left: .05em;
+    border-radius: 2em;
+    border: 2px solid #01BC35;
+		transition: .3s ease;
+	}
+}
+.toggle {
+	label {
+		background: #FC6969;
+    border: .5px solid rgba(117, 117, 117, 0.31);
+    box-shadow: inset 0px 0px 4px 0px rgba(0,0,0,0.2), 0 -3px 4px rgba(0,0,0,0.15);
+		&:before {
+			border: none;
+			width: 0.83em;
+			height: 0.83em;
+			box-shadow: inset 0.5px -1px 1px rgba(0, 0, 0, 0.35);
+			background: #fff;
+			transform: rotate(-25deg);
+		}
+		&:after {
+			background: transparent;
+			height: calc(100% + 8px);
+			border-radius: 30px;
+			top: -5px;
+			width: calc(100% + 8px);
+			left: -4px;
+			z-index: 0;
+			box-shadow: inset 0px 2px 4px -2px rgba(0,0,0,0.2), 0px 1px 2px 0px rgba(151, 151, 151, 0.2);
+		}
+	}
+}
+.toggle__checkbox {
+	height: 20px;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	width: 20px;
+}
+	.Public:checked + label {
+		background: #01BC35;
+		&:before {
+			left: 20px;
+		}
+	}
+	.Raspis:checked + label {
+		background: #01BC35;
+		&:before {
+			left: 20px;
+		}
+	}
+	.Comm:checked + label {
+		background: #01BC35;
+		&:before {
+			left: 20px;
+		}
+	}
+.setting_block__text_add1{
+	grid-area: texta;
+	font-size: 16px;
+}
+.setting_block__text_add2{
+	grid-area: textb;
+	font-size: 16px;
+}
+.setting_block__text_add3{
+	grid-area: textc;
+	font-size: 16px;
+}
+.setting_block__img_grid{
+	grid-area: img-grid;
+  margin: 30px 20px 0 auto;
+}
+.setting_block__input_btn{
+	grid-area: input-btn;
+	height: 50%;
+	width: 50px;
+	transition: 0.5s;
+	margin-right: auto;
+	padding: 0;
+	border: none;
+	background:transparent;
+	@media (hover: hover){
+		&:hover{
+			cursor: pointer;
+			transition: 0.5s;
+			padding-left: 13px;
+		}
+	}
+}
+

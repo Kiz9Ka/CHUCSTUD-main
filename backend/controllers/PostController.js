@@ -5,8 +5,8 @@ export const getAll = async (req, res) => {
 	try {
 		let userId = req.cookies.userId
 		if (!userId) {
-			userId = uuidv4()
-			res.cookie('userId', userId, { maxAge: 365 * 24 * 60 * 60 * 1000 }) // Устанавливаем cookie на 1 год
+				userId = uuidv4()
+				res.cookie('userId', userId, { maxAge: 365 * 24 * 60 * 60 * 1000 }) // Устанавливаем cookie на 1 год
 		}
 
 		const allPosts = await PostModel.find().populate('user').exec()
@@ -167,3 +167,34 @@ export const update = async (req, res) => {
 		})
 	}
 }
+
+export const like = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    const userId = req.userId;
+
+    const post = await PostModel.findById(postId);
+
+    if (!post) {
+      return res.status(404).json({ message: 'Статья не найдена' });
+    }
+
+    const userLikeIndex = post.likes.findIndex((like) => like.user.toString() === userId);
+
+    if (userLikeIndex !== -1) {
+      post.likes.splice(userLikeIndex, 1);
+      post.likesCount -= 1;
+    } else {
+      post.likes.push({ user: userId });
+      post.likesCount += 1;
+    }
+
+    await post.save();
+
+    res.json({ likesCount: post.likesCount });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Ошибка сервера' });
+  }
+};
+

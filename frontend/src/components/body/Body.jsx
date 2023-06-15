@@ -5,7 +5,7 @@ function Header({ openPopupAuth }) {
 	return (
 		<header className={styles.header}>
 			<div className={styles.header__logo}>
-				<a href='http://178.46.164.244:3000/' className={styles.header__link}>
+				<a href='#' className={styles.header__link}>
 					<img src='img/page1/Header/logo.png' alt='CHUCSTUD лого' />
 				</a>
 			</div>
