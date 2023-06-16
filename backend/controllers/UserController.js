@@ -1,6 +1,9 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import UserModel from '../models/User.js';
+import mongoose from 'mongoose';
+const { ObjectId } = mongoose.Types;
+
 
 export const register = async (req, res) => {
   try {
@@ -8,16 +11,17 @@ export const register = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
 
-    const doc = new UserModel({
-      login: req.body.login,
-      phoneNumber: req.body.phoneNumber,
-      groupNumber: req.body.groupNumber,
-      passwordHash: hash,
-      avatarUrl: req.body.avatarUrl,
-      fullName: req.body.fullName,
-      accessLevel: req.body.accessLevel,
-      groups: req.body.groups,
-    });
+		const doc = new UserModel({
+			login: req.body.login,
+			phoneNumber: req.body.phoneNumber,
+			groupNumber: req.body.groupNumber,
+			passwordHash: hash,
+			avatarUrl: req.body.avatarUrl,
+			fullName: req.body.fullName,
+			accessLevel: req.body.accessLevel,
+			groups: req.body.groups,
+		});
+		
 
     const user = await doc.save();
 
