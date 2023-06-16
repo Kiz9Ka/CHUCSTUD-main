@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const CommentSchema = new mongoose.Schema({
   user: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: 'User',
     required: true,
   },
@@ -37,9 +37,13 @@ const PostSchema = new mongoose.Schema({
     default: 0,
   },
   user: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: 'User',
     required: true,
+  },
+  visibleToGroups: {
+    type: [String],
+    default: [],
   },
   comments: {
     type: [CommentSchema],
@@ -53,14 +57,10 @@ const PostSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  likedBy: {
-    type: [String],
-    default: []
-  },
   likes: [
     {
       user: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: 'User',
       },
     },

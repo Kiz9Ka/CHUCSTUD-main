@@ -19,11 +19,9 @@ function RightMenu({ togglePostCreateShow }) {
 		<div className={styles.right_menu__bottom_menu}>
 				<h3 className={styles.right_menu__text_list}>Список преподавателей</h3>
 				<ul className={styles.right_menu__list_teacher}>
-						<li className={styles.right_menu__item_teacher}> <img src="img/page1/Right-menu/avatar.svg" alt="Иконка преподавателя" className={styles.right_menu__teacher_img}/>Звягинцев К.А.</li>
-						<li className={styles.right_menu__item_teacher}> <img src="img/page1/Right-menu/avatar.svg" alt="Иконка преподавателя" className={styles.right_menu__teacher_img}/>Юдина А.А.</li>
+						<li className={styles.right_menu__item_teacher}> <img src="img/page1/Right-menu/avatar.svg" alt="Иконка преподавателя" className={styles.right_menu__teacher_img}/>Мотов С.А.</li>
+						<li className={styles.right_menu__item_teacher}> <img src="img/page1/Right-menu/avatar.svg" alt="Иконка преподавателя" className={styles.right_menu__teacher_img}/>Алиев А.А.</li>
 						<li className={styles.right_menu__item_teacher}> <img src="img/page1/Right-menu/avatar.svg" alt="Иконка преподавателя" className={styles.right_menu__teacher_img}/>Попов А.Э.</li>
-						<li className={styles.right_menu__item_teacher}> <img src="img/page1/Right-menu/avatar.svg" alt="Иконка преподавателя" className={styles.right_menu__teacher_img}/>Мальцев А.П.</li>
-						<li className={styles.right_menu__item_teacher}> <img src="img/page1/Right-menu/avatar.svg" alt="Иконка преподавателя" className={styles.right_menu__teacher_img}/>Баранов К.О.</li>
 				</ul>
 		</div>
 	</div>

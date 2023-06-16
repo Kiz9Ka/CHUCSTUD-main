@@ -15,7 +15,7 @@ function MainСonveyor({ showPostPublication }) {
 	return (
 		<div className={styles.main_conveyor}>
 			<PostPublication show={showPostPublication} />
-			{isAuthenticated ? <Publication /> : <PostNotFound />}
+			{isAuthenticated ? <Publication /> : <PostNotFound />} 
 		</div>
 	)
 }

@@ -8,12 +8,26 @@ function Publication() {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.feed.posts);
   const currentUser = useSelector((state) => state.auth.user);
-	const [likedPosts, setLikedPosts] = useState([]);
-
+  const [likedPosts, setLikedPosts] = useState([]);
+	
   useEffect(() => {
-    axios.get('http://178.46.164.244:4444/posts').then((response) => {
-      dispatch(setAllArticles(response.data));
-    });
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get('http://178.46.164.244:4444/posts');
+        dispatch(setAllArticles(response.data));
+
+        // Получение лайков текущего пользователя
+				const likedPostsIds = response.data
+				.filter((post) => post.likes.some((like) => like.user.toString() === currentUser._id))
+				.map((post) => post._id);
+			
+        setLikedPosts(likedPostsIds);
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+    };
+
+    fetchPosts();
   }, []);
 
 	const handleLike = async (postId) => {
@@ -49,11 +63,10 @@ function Publication() {
 			console.error('Error while liking post:', error);
 		}
 	};
-	
-	
 	const isPostLikedByUser = (postId) => {
 		return likedPosts.includes(postId);
 	};
+
 	const formatRussianDate = (dateString) => {
 		const createdAt = new Date(dateString);
 		const options = {
@@ -90,11 +103,12 @@ function Publication() {
 			</section>
 			<section className={styles.publication__footer}>
 					<button className={styles.publication__like_btn} onClick={() => handleLike(post._id)}>
-							<img src={
-											isPostLikedByUser(post._id)
-												? "img/page1/Main/heart_filled.svg"
-												: "img/page1/Main/heart.svg"
-											}
+							<img 
+									src={
+										isPostLikedByUser(post._id)
+											? "img/page1/Main/heart_filled.svg"
+											: "img/page1/Main/heart.svg"
+									}
 								 alt="Иконка сердца" className={styles.publication__svg_icon}/>
 							<h4 className={styles.publication__text}> {post.likesCount}</h4>
 					</button>
